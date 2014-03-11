@@ -1,0 +1,92 @@
+doctype
+//if lt IE 7
+  html.no-js.lt-ie9.lt-ie8.lt-ie7
+//if IE 7
+  html.no-js.lt-ie9.lt-ie8
+//if IE 8
+  html.no-js.lt-ie9
+//[if gt IE 8]><!
+html.no-js(lang='en')
+  //<![endif]
+  head
+    title= (typeof pagetitle != "undefined" ? pagetitle : title)
+    meta(charset='utf-8')
+    meta(name='description', content='')
+    meta(name='viewport', content='width=device-width')
+    link(rel='stylesheet', href='/css/normalize.css')
+    link(rel='stylesheet', href='/css/main.css')
+    script(src='//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js')
+
+  body
+    //if lt IE 7
+      p.chromeframe
+        | You are using an 
+        strong outdated
+        | browser. Please 
+        a(href='http://browsehappy.com/') upgrade your browser
+        |  or 
+        a(href='http://www.google.com/chromeframe/?redirect=true') activate Google Chrome Frame
+        |  to improve your experience.
+
+    div(id='fb-root')
+    script
+      (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = '//connect.facebook.net/en_US/all.js#xfbml=1&appId=388558531205027';
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+
+    header.grid
+      h1= site_title
+      nav
+        a.menu-control(href='javascript:void(0)') - menu
+        ol.hideyokids
+          li 
+            a(href="/") Home
+          if(!menu.length)
+            -null
+          else
+            for page in menu
+              li
+                a(href="/"+page.url) #{page.title}
+          if(session.logon)
+            li 
+              a(href="/logout") Logout
+          else
+            li
+              a(href="javascript:void(0)").login-button Login / Signup
+          if(!session.admin)
+            - null
+          else
+            li 
+              a(href="/post/new") New Post
+            li 
+              a(href="/post/delete") Posts
+            li 
+              a(href="/page/new") New Page
+            li 
+              a(href="/page/delete") Pages
+
+
+
+    #content.grid
+      block content
+        if(typeof posts == 'undefined')
+          .widget
+            a(href='/') Back to home
+        else
+          .widget
+              p Latest Posts
+              ul
+              for post in posts
+                li
+                  a(href='/post/#{post._id}/#{post.title_sub}')=  post.title
+
+    footer.grid
+    script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js')
+    script(type='text/javascript', src='//cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js')
+    script(type='text/javascript', src='//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js')
+    script(type='text/javascript', src='//cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.10/backbone-min.js')
+    script(type='text/javascript', src='/js/main.js')

@@ -1,0 +1,30 @@
+{
+  "name": "shanet.ie",
+  "description": "just a blog right now",
+  "version": "0.1.0",
+  "author": {
+    "name": "Shane T Odlum",
+    "email": "shanet@shanet.ie",
+    "url": "http://shanet.ie"
+  },
+  "private": true,
+  "engines": {
+    "node": "0.8.x",
+    "npm":  "1.1.x"
+  },
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "express": "3.0.0rc5",
+    "jade": "*",
+    "mongoose":"*",
+    "mongodb":"*",
+    "node-markdown":"*",
+    "moment":"*",
+    "mongoose-validator":"*",
+    "validator":"*",
+    "sha1":"*"
+  }
+}
+

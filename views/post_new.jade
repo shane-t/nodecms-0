@@ -1,0 +1,11 @@
+extends layout
+
+block content 
+  form(method='post').grid-block
+    h2 New Post
+    if (typeof error != 'undefined') 
+      p=error
+    input(type='text', name='title', placeholder='Title')
+    label.canedit Write your post here
+      textarea(name='body', placeholder='Write your post here')
+    input(type="submit", value="Create")

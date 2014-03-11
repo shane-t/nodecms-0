@@ -1,0 +1,11 @@
+
+form.login.grid-small.grid-block(action='/login', method='post')
+  h2 Login
+  !=message
+  label.clearfix
+    | username
+    input(type='password', name='username', placeholder='username')
+  label.clearfix
+    | password
+    input(type='password', name='password', placeholder='password')
+  input(type='submit', value='Login')

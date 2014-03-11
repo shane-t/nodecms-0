@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    h2 Administer Users
+    for user in users
+      - var userclass=''
+      - for role in user.getRoleArray()
+        - userclass += ' ' + role
+      section(data-id='#{user._id}', data-roles=user.getRoles(), class='user grid-block grid-small user-edit #{userclass}')
+        h3
+          a(href='/user/'+user.username) #{user.username}
+        label since 
+          time(datetime=dateTime(user.joined))=dateFormat(user.joined)
+        form(action='/user/'+user.username, method='post')
+          input(type='hidden', name='_method', value='delete')
+          input(type='submit', id='delete_btn', value='Delete')

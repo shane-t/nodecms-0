@@ -1,0 +1,12 @@
+form.signup.grid-small.grid-block(action='/user/new', method='post')
+  h2 sign up
+  label.clearfix
+    | whatever you want
+    input(type='text', name='username', min='1', max='5', required='true', placeholder='username')
+  label.clearfix
+    | password (will not be stored in plain text)
+    input(type='password', name='password', min='4', required='true')
+  label.clearfix
+    | you totally don't have to enter one right now, its in case you forget your password
+    input(type='email', name='email', placeholder='email address')
+  input(type='submit', value='sign up')

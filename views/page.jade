@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  .grid-block
+    h2= page.title
+    hr
+    section.page-content.content-edit.md(data-model='page', data-id='#{page._id}')
+      !=md(page.content)

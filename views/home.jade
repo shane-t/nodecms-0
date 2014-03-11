@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    for post in posts
+      if post.content.length < 200
+        - var content = md(post.content);
+      else
+        - var content = md(post.content).substring(0, 200) + '...';
+      article.grid-block
+        h2.post-title
+          a(href='post/#{post.subtitle}')= post.title
+        !=content
+        time(datetime=dateTime(post.date))= dateFormat(post.date)

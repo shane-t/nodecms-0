@@ -1,0 +1,35 @@
+TODO
+====
+
+- add signup & user admin pages
+- fix group/role/sessions
+
+- test dynamic repopulation of page cache
+- add MD editor to new post/page page
+
+- edit titles
+- 404 should have a message on it
+
+- better time formatting throughout
+- unpublish a post or page 
+- insert images in editor
+
+
+- localstorage for editors
+- restrict API to admins
+- restrict "admin links" to admins
+- markdown editor : link, image
+- stop code element from wrapping
+- style blockquotes
+- do bullets work on mobile?
+- buttons hard to use on mobile
+- a way to submit links
+
+- discussions
+- more sharing options, and a way to <3 a post
+- twitter signup
+
+- redo css with responsive grid/Flat UI
+- add BULK POST api
+- Regenerate session when signing in to prevent fixation
+- write tests

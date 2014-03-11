@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    h2 Delete A Post
+    for post in posts
+      form.grid-small.grid-block(action='/post/'+post._id, method='post')
+        h3
+          a(href="/post/"+post.subtitle) #{post.title}
+        label Created on #{post.date}
+        input(type='hidden', name='_method', value='delete')
+        input(type='submit', id='delete_btn', value='Delete')

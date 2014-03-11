@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  article.post.grid-block
+    h2=post.title
+    a(href="//twitter.com/share", class="twitter-share-button", target="_blank") Tweet
+    time(datetime=dateTime(post.date))=dateFormat(post.date)
+    hr
+    //.fb-like(data-send="true", data-width="450", data-show-faces="true")
+    section.post-content.content-edit.md(data-model='post', data-id='#{post._id}')
+      !=md(post.content)
+  section.comments
+      if(comments == null)
+        label No comments
+      else
+        ul
+          for comment in comments
+            li.grid-block(id='#{comment._id}')
+              if(comment.url)
+                a(href='#{comment.url}', rel='nofollow')=comment.name
+              else
+                span=comment.name
+              span &nbsp;
+              a(href='##{comment._id}')
+                time(datetime=dateTime(comment.date))=dateFormat(comment.date)
+              !=md(comment.comment)
+  section.respond.grid-small.grid-block
+    form.grid-small(action='/post/#{post.subtitle}', method='post')
+      input(type='hidden', name='id', value='#{post._id}')
+      label.clearfix Name
+        input(type='text',name='name')
+      label.clearfix URL
+        input(type='text',name='url', placeholder='optional')
+      textarea(name='comment', placeholder='Comment')
+      input(type='submit', id='submitComment', value='Submit')

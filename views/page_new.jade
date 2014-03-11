@@ -1,0 +1,14 @@
+extends layout
+
+block content 
+  form(method='post').grid-block
+    h2 New Page
+    !=message
+    input(type='text', name='title', placeholder='Title')
+    textarea(name='body', placeholder='Write your page here')
+    select(name='menu')
+      option(value='') Show in Menu?
+      option(value='true') Yes
+      option(value='false') No
+    input(type='text', name='priority', placeholder='Menu priority (e.g. 1)')
+    input(type="submit", value="Create")
